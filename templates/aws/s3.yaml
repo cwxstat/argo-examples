@@ -20,7 +20,7 @@ spec:
         - name: AWS_SECRET_ACCESS_KEY
 	  value: '{{workflow.parameters.AWS_SECRET_ACCESS_KEY}}'
         - name: AWS_DEFAULT_REGION
-	  value: '{{workflow.parameters.AWS_DEFAULT_REGION}}'	  	  
+          value: '{{workflow.parameters.AWS_DEFAULT_REGION}}'	  	  
 
 
 
