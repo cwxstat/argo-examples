@@ -16,7 +16,7 @@ spec:
       command: [/ko-app/s3]
       env:
         - name: AWS_ACCESS_KEY_ID
-        - value: '{{workflow.parameters.AWS_ACCESS_KEY_ID}}'
+          value: '{{workflow.parameters.AWS_ACCESS_KEY_ID}}'
         - name: AWS_SECRET_ACCESS_KEY
 	  value: '{{workflow.parameters.AWS_SECRET_ACCESS_KEY}}'
         - name: AWS_DEFAULT_REGION
