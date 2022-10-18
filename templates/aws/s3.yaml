@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  generateName: s3-cred-check
+  labels:
+    workflows.argoproj.io/archive-strategy: "false"
+  annotations:
+    workflows.argoproj.io/description: |
+      This is a simple s3 example
+spec:
+  entrypoint: s3creds
+  templates:
+  - name: s3creds
+    container:
+      image: us-central1-docker.pkg.dev/mchirico/public/lists3:2022-10-09_16-12-59.701_DST
+      command: [/ko-app/s3]
+      env:
+        - name: AWS_ACCESS_KEY_ID
+	  value: '{{workflow.parameters.AWS_ACCESS_KEY_ID}}'
+        - name: AWS_SECRET_ACCESS_KEY
+	  value: '{{workflow.parameters.AWS_SECRET_ACCESS_KEY}}'
+        - name: AWS_DEFAULT_REGION
+	  value: '{{workflow.parameters.AWS_DEFAULT_REGION}}'	  	  
+
+
+
